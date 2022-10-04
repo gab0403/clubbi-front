@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import Context from '../context/Context';
 import Header from './Header';
 
 function TableFilms() {
-  const [filterByName, setFilterByName] = useState();
+  const { filterByName, setFilterByName } = useContext(Context);
   const [films, setFilms] = useState([]);
   const [filterFilms, setfilterFilms] = useState([]);
 

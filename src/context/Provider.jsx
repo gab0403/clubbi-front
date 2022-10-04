@@ -1,9 +1,11 @@
-import React, { } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import Context from './Context';
 
 function Provider({ children }) {
+  const [filterByName, setFilterByName] = useState();
+
   const navigate = useNavigate();
 
   const getFilms = async () => {
@@ -22,7 +24,10 @@ function Provider({ children }) {
     getFilms,
     getActors,
     getLocations,
+    filterByName,
+    setFilterByName,
   }), [
+    filterByName,
   ]);
 
   return (

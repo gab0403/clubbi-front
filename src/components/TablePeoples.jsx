@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import Context from '../context/Context';
 import Header from './Header';
 
 function TablePeople() {
+  const { filterByName, setFilterByName } = useContext(Context);
   const [people, setPeople] = useState([]);
-  const [filterByName, setFilterByName] = useState();
   const [filterPeoples, setFilterPeoples] = useState([]);
+
   useEffect(() => {
     const getPeople = async () => {
       const results = await fetch('https://ghibliapi.herokuapp.com/people').then((response) => response.json());
@@ -13,6 +15,7 @@ function TablePeople() {
     };
     getPeople();
   }, []);
+
   useEffect(() => {
     const filterApiName = people.filter(
       (peop) => peop.name.toLowerCase()
