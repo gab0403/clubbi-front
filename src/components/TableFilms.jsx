@@ -4,13 +4,13 @@ import Header from './Header';
 function TableFilms() {
   const [filterByName, setFilterByName] = useState();
   const [films, setFilms] = useState([]);
-  const [filmsFiltrados, setFilmsFiltrados] = useState([]);
+  const [filterFilms, setfilterFilms] = useState([]);
 
   useEffect(() => {
     const getFilms = async () => {
       const results = await fetch('https://ghibliapi.herokuapp.com/films').then((response) => response.json());
       setFilms(results);
-      setFilmsFiltrados(results);
+      setfilterFilms(results);
     };
     getFilms();
   }, []);
@@ -20,7 +20,7 @@ function TableFilms() {
       (film) => film.title.toLowerCase()
         .includes(filterByName.toString().toLowerCase()),
     );
-    setFilmsFiltrados(filterApiName === [] ? films : filterApiName);
+    setfilterFilms(filterApiName === [] ? films : filterApiName);
   }, [filterByName]);
 
   return (
@@ -47,7 +47,7 @@ function TableFilms() {
           </tr>
         </thead>
         <tbody>
-          {filmsFiltrados.map((e) => (
+          {filterFilms.map((e) => (
             <tr key={e.title}>
               <td>{ e.title }</td>
               <td>{ e.original_title }</td>

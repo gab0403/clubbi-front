@@ -3,18 +3,32 @@ import Header from './Header';
 
 function TablePeople() {
   const [people, setPeople] = useState([]);
-
+  const [filterByName, setFilterByName] = useState();
+  const [filterPeoples, setFilterPeoples] = useState([]);
   useEffect(() => {
     const getPeople = async () => {
       const results = await fetch('https://ghibliapi.herokuapp.com/people').then((response) => response.json());
       setPeople(results);
+      setFilterPeoples(results);
     };
     getPeople();
   }, []);
+  useEffect(() => {
+    const filterApiName = people.filter(
+      (peop) => peop.name.toLowerCase()
+        .includes(filterByName.toString().toLowerCase()),
+    );
+    setFilterPeoples(filterApiName === [] ? people : filterApiName);
+  }, [filterByName]);
 
   return (
     <section>
       <Header />
+      <input
+        type="text"
+        value={filterByName}
+        onChange={(e) => setFilterByName(e.target.value)}
+      />
       <table>
         <thead>
           <tr>
@@ -28,7 +42,7 @@ function TablePeople() {
           </tr>
         </thead>
         <tbody>
-          {people.map((e) => (
+          {filterPeoples.map((e) => (
             <tr key={e.name}>
               <td>{ e.name }</td>
               <td>{ e.gender }</td>
