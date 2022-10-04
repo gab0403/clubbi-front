@@ -1,15 +1,39 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import Context from './Context';
 
 function Provider({ children }) {
-  const [api, setApi] = useState([]);
+  const values = {
+    name: '',
+  };
+
+  const [filterByName, setFilterByName] = useState(values);
+  const navigate = useNavigate();
+
+  const getFilms = async () => {
+    navigate('/films');
+  };
+
+  // const getActors = async () => {
+  //   const results = await fetch('https://ghibliapi.herokuapp.com/people').then((response) => response.json());
+  //   setApi(results);
+  // };
+  // const getLocations = async () => {
+  //   const { results } = await fetch('https://ghibliapi.herokuapp.com/locations').then((response) => response.json());
+  //   setApi(results);
+  // };
+
   const contextValue = React.useMemo(() => ({
-    api,
-    setApi,
+    getFilms,
+    // getActors,
+    // getLocations,
+    filterByName,
+    setFilterByName,
   }), [
-    api,
+    filterByName,
   ]);
+
   return (
     <Context.Provider value={contextValue}>
       { children }

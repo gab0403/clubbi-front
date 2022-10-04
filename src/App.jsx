@@ -1,12 +1,15 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import Provider from './context/Provider';
-import Header from './components/Header';
+import Routes from './routes/Routes';
 
 function App() {
   return (
-    <Provider>
-      <Header />
-    </Provider>
+    <BrowserRouter>
+      <Provider>
+        <Routes />
+      </Provider>
+    </BrowserRouter>
   );
 }
 
