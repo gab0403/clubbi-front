@@ -19,15 +19,14 @@ function Provider({ children }) {
     navigate('/actors');
   };
 
-  // const getLocations = async () => {
-  //   const { results } = await fetch('https://ghibliapi.herokuapp.com/locations').then((response) => response.json());
-  //   setApi(results);
-  // };
+  const getLocations = async () => {
+    navigate('/locations');
+  };
 
   const contextValue = React.useMemo(() => ({
     getFilms,
     getActors,
-    // getLocations,
+    getLocations,
     filterByName,
     setFilterByName,
   }), [
