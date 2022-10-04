@@ -15,10 +15,10 @@ function Provider({ children }) {
     navigate('/films');
   };
 
-  // const getActors = async () => {
-  //   const results = await fetch('https://ghibliapi.herokuapp.com/people').then((response) => response.json());
-  //   setApi(results);
-  // };
+  const getActors = async () => {
+    navigate('/actors');
+  };
+
   // const getLocations = async () => {
   //   const { results } = await fetch('https://ghibliapi.herokuapp.com/locations').then((response) => response.json());
   //   setApi(results);
@@ -26,7 +26,7 @@ function Provider({ children }) {
 
   const contextValue = React.useMemo(() => ({
     getFilms,
-    // getActors,
+    getActors,
     // getLocations,
     filterByName,
     setFilterByName,
