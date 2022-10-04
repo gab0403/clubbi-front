@@ -2,19 +2,35 @@ import React, { useEffect, useState } from 'react';
 import Header from './Header';
 
 function TableFilms() {
+  const [filterByName, setFilterByName] = useState();
   const [films, setFilms] = useState([]);
+  const [filmsFiltrados, setFilmsFiltrados] = useState([]);
 
   useEffect(() => {
     const getFilms = async () => {
       const results = await fetch('https://ghibliapi.herokuapp.com/films').then((response) => response.json());
       setFilms(results);
+      setFilmsFiltrados(results);
     };
     getFilms();
   }, []);
 
+  useEffect(() => {
+    const filterApiName = films.filter(
+      (film) => film.title.toLowerCase()
+        .includes(filterByName.toString().toLowerCase()),
+    );
+    setFilmsFiltrados(filterApiName === [] ? films : filterApiName);
+  }, [filterByName]);
+
   return (
     <section>
       <Header />
+      <input
+        type="text"
+        value={filterByName}
+        onChange={(e) => setFilterByName(e.target.value)}
+      />
       <table>
         <thead>
           <tr>
@@ -31,7 +47,7 @@ function TableFilms() {
           </tr>
         </thead>
         <tbody>
-          {films.map((e) => (
+          {filmsFiltrados.map((e) => (
             <tr key={e.title}>
               <td>{ e.title }</td>
               <td>{ e.original_title }</td>
