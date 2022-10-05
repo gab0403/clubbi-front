@@ -28,11 +28,12 @@ function TableFilms() {
     <section>
       <Header />
       <input
+        data-testid="input-search"
         type="text"
         value={filterByName}
         onChange={(e) => setFilterByName(e.target.value)}
       />
-      <table>
+      <table data-testid="table">
         <thead>
           <tr>
             <th>Title</th>
@@ -47,7 +48,7 @@ function TableFilms() {
             <th>URL</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody data-testid="result-table">
           {filterFilms.map((e) => (
             <tr key={e.title}>
               <td>{ e.title }</td>

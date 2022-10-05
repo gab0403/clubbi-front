@@ -28,11 +28,12 @@ function TableLocations() {
     <section>
       <Header />
       <input
+        data-testid="input-search"
         type="text"
         value={filterByName}
         onChange={(e) => setFilterByName(e.target.value)}
       />
-      <table>
+      <table data-testid="table">
         <thead>
           <tr>
             <th>Name</th>
@@ -43,7 +44,7 @@ function TableLocations() {
             <th>URL</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody data-testid="result-table">
           {filterLocations.map((e) => (
             <tr key={e.name}>
               <td>{ e.name }</td>
