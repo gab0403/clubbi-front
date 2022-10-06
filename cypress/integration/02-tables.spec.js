@@ -17,19 +17,19 @@ describe('02- Tables', () => {
     hasElements();
   });
 
-  it('Verifica se o input de pesquisa funciona corretamente na rota /films', () => {
+  it('Verifica se o input de pesquisa tem o comportamento padrão na rota /films', () => {
     cy.visit('http://localhost:3000/films');
 
     cy.get('[data-testid="input-search"]').should('be.visible').type('Castle in the Sky');
   });
 
-  it('Verifica se o input de pesquisa funciona corretamente na rota /actors', () => {
+  it('Verifica se o input de pesquisa tem o comportamento padrão na rota /actors', () => {
     cy.visit('http://localhost:3000/actors');
 
     cy.get('[data-testid="input-search"]').should('be.visible').type('Pazu');
   });
 
-  it('Verifica se o input de pesquisa funciona corretamente na rota /locations', () => {
+  it('Verifica se o input de pesquisa tem o comportamento padrão na rota /locations', () => {
     cy.visit('http://localhost:3000/locations');
 
     cy.get('[data-testid="input-search"]').should('be.visible').type('Gutiokipanja');
