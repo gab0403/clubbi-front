@@ -1,18 +1,18 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
 import Footer from './components/Footer';
+import Header from './components/Header';
+import Films from './components/Films';
 import Provider from './context/Provider';
-import Routes from './routes/Routes';
 import './styles/index.css';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Provider>
-        <Routes />
-        <Footer />
-      </Provider>
-    </BrowserRouter>
+    <Provider>
+      <Header />
+      <Films />
+      <Footer />
+    </Provider>
+
   );
 }
 
