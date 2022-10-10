@@ -1,41 +1,43 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Context from '../context/Context';
 import Details from './Details';
 import '../styles/CardFilm.css';
+import { getAllFilms } from '../service/getAPI';
 
 function Films() {
   const {
-    filterByName, setFilterByName, filterFilms, setIsOpen,
-    setFilmId,
+    allFilms,
+    setAllFilms, filterFilms, setfilterFilms, setSelectedFilm, modalIsOpen, setModalIsOpen,
   } = useContext(Context);
 
-  // const [people, setPeople] = useState([]);
+  const [filterByName, setFilterByName] = useState('');
 
-  const getIdFilm = async (id) => {
-    const results = await fetch(`https://ghibliapi.herokuapp.com/films/${id}`).then((response) => response.json());
-    setFilmId(results);
-    setIsOpen(true);
+  const getAll = async () => {
+    const result = await getAllFilms();
+    console.log('teste', result);
+    setAllFilms(result);
+    setfilterFilms(result);
   };
 
-  // const getPeoples = async (pessoa) => {
-  //   if (filmId) {
-  //     const results = await fetch(`${pessoa}`).then((response) => response.json());
-  //     console.log(results.name);
-  //     setPeople(results.name);
-  //     console.log('teste film', results);
-  //   }
-  // };
+  const setFilm = (film) => {
+    setSelectedFilm(film);
+    setModalIsOpen(true);
+  };
 
-  // const getPeople = () => {
-  //   if (filmId) {
-  //     filmId.people.forEach((pessoa) => getPeoples(pessoa));
-  //   }
-  // };
-  // getPeople();
+  useEffect(() => {
+    const filterApiName = allFilms.filter((film) => film.title.toLowerCase()
+      .includes(filterByName.toString().toLowerCase()));
+    setfilterFilms(filterApiName === [] ? allFilms : filterApiName);
+  }, [filterByName]);
+
+  useEffect(() => {
+    getAll();
+  }, []);
 
   return (
     <section>
-      <Details />
+      { modalIsOpen
+        ? <Details /> : false}
       <section className="section-card">
         <p>Filmes</p>
         <input
@@ -51,7 +53,7 @@ function Films() {
             <section key={e.title} className="card-id">
               <img className="img-card" src={e.image} alt="" />
               <div className="div-texts">
-                <h1>{ e.title }</h1>
+                <h1>{e.title}</h1>
                 <p>
                   {`Diretor: ${e.director} `}
                 </p>
@@ -59,12 +61,12 @@ function Films() {
                   {`Data: ${e.release_date} `}
                 </p>
                 <p>
-                  {`Tempo: ${e.running_time}min` }
+                  {`Tempo: ${e.running_time}min`}
                 </p>
                 <p>
-                  {`Score:  ${e.rt_score}` }
+                  {`Score:  ${e.rt_score}`}
                 </p>
-                <button type="button" onClick={() => getIdFilm(e.id)}>Detalhes</button>
+                <button type="button" onClick={() => setFilm(e)}>Detalhes</button>
               </div>
             </section>
           ))}
