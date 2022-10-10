@@ -10,7 +10,7 @@ function Details() {
     modalIsOpen, setModalIsOpen, selectedFilm,
   } = useContext(Context);
 
-  const [people, setPeople] = useState([]);
+  const [allPeople, setAllPeople] = useState([]);
 
   useEffect(() => {
     const getAllPeople = async () => {
@@ -22,7 +22,7 @@ function Details() {
         return arrayPeople;
       });
       const resolvePeople = await Promise.all(arrayPeople);
-      setPeople(resolvePeople);
+      setAllPeople(resolvePeople);
     };
     getAllPeople();
   }, []);
@@ -48,7 +48,7 @@ function Details() {
                 {`Produtor: ${selectedFilm.producer}`}
               </p>
               {
-                people && people.map((e) => (
+                allPeople && allPeople.map((e) => (
                   <p key={e.name}>
                     {`nome: ${e.name}`}
                     {` age: ${e.age}`}

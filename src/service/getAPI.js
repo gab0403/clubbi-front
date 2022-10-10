@@ -18,16 +18,15 @@ const builderFilms = (filmes) => {
     .people(film.people)
     .locations(film.locations)
     .build());
+  if (result) {
+    return result;
+  }
   return result;
 };
 
 const getAllFilms = async () => {
   const response = ghibliAPI.get('https://ghibliapi.herokuapp.com/films')
-    .then(async (res) => {
-      if (res && res.data) {
-        builderFilms(res.data);
-      }
-    })
+    .then(async (res) => builderFilms(res.data))
     .catch(() => false);
   return response;
 };
