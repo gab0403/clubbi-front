@@ -46,12 +46,23 @@ const getPeople = async (url) => {
   return response;
 };
 
-const getAllLocations = async (url) => {
-  console.log('teste locations', url);
-};
+// const builderLocations = (locations) => Builder()
+//   .name(locations.name)
+//   .build();
+
+// const getLocations = async (url) => {
+//   const response = ghibliAPI.get(url)
+//     .then((res) => {
+//       const result = builderLocations(res.data);
+//       console.log(result);
+//       return result;
+//     })
+//     .catch(() => false);
+//   return response;
+// };
 
 export {
   getAllFilms,
   getPeople,
-  getAllLocations,
+  // getLocations,
 };

@@ -14,7 +14,6 @@ function Films() {
 
   const getAll = async () => {
     const result = await getAllFilms();
-    console.log('teste', result);
     setAllFilms(result);
     setfilterFilms(result);
   };
@@ -39,7 +38,6 @@ function Films() {
       { modalIsOpen
         ? <Details /> : false}
       <section className="section-card">
-        <p>Filmes</p>
         <input
           placeholder="Pesquise pelo seus filmes favoritos"
           className="search"
@@ -55,18 +53,23 @@ function Films() {
               <div className="div-texts">
                 <h1>{e.title}</h1>
                 <p>
-                  {`Diretor: ${e.director} `}
+                  {`${e.release_date} `}
                 </p>
                 <p>
-                  {`Data: ${e.release_date} `}
+                  {`Diretor: ${e.director} `}
                 </p>
+                {/* <p>
+                  {`Produtor: ${e.producer}`}
+                </p> */}
                 <p>
                   {`Tempo: ${e.running_time}min`}
                 </p>
                 <p>
-                  {`Score:  ${e.rt_score}`}
+                  {`Score:  ${e.rt_score}%`}
                 </p>
-                <button type="button" onClick={() => setFilm(e)}>Detalhes</button>
+                <section className="section-button-details">
+                  <button className="button-details" type="button" onClick={() => setFilm(e)}>Detalhes</button>
+                </section>
               </div>
             </section>
           ))}
