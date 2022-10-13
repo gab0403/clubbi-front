@@ -50,4 +50,4 @@ jobs:
         uses: jsmrcaga/action-netlify-deploy@v1.1.0
         with:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-            NETLIFY_SITE_ID: fffd36d8-978a-4d3d-81ec-a4e850e714d1
+          NETLIFY_SITE_ID: fffd36d8-978a-4d3d-81ec-a4e850e714d1
