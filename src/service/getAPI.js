@@ -118,8 +118,8 @@ const getCompletedMovies = () => {
   const resultPeoples = JSON.parse(getSavedInLocalStorage('pessoas'));
   const resultLocations = JSON.parse(getSavedInLocalStorage('locais'));
   if (resultFilms && resultPeoples && resultLocations) {
-    const filmesCompletos = builderCompleteMovies(resultFilms, resultPeoples, resultLocations);
-    return filmesCompletos;
+    const completedMovies = builderCompleteMovies(resultFilms, resultPeoples, resultLocations);
+    return completedMovies;
   }
   return false;
 };
