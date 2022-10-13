@@ -12,18 +12,17 @@ jobs:
           with:
             node-version: 14
 
-
         - name: instalando as dependências
           run: npm install
 
         - name: executando o lint para verificar se a erros
           run: npx eslint .
   evaluator:
-    name: Evaluator Job
-    runs-on: ubuntu-18.04
-    needs: [eslint]
+    cypress-run:
+    runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Cypress run
         uses: cypress-io/github-action@v4
   deploy:
