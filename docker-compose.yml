@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    working_dir: /app
+    volumes:
+      - ./:/app
+    container_name: studio-ghibli-desafio-clubbi
+    ports:
+      - 3000:3000
