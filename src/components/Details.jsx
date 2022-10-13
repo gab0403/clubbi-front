@@ -25,17 +25,17 @@ function Details() {
         {selectedFilm
           ? (
             <section>
-              <img src={selectedFilm.movie_banner} alt="Banner do filme." className="img-banner" />
-              <h1>{selectedFilm.title}</h1>
-              <p className="description">{selectedFilm.description}</p>
+              <img data-testid="img-banner" src={selectedFilm.movie_banner} alt="Banner do filme." className="img-banner" />
+              <h1 data-testid="title-details">{selectedFilm.title}</h1>
+              <p data-testid="element-details" className="description">{selectedFilm.description}</p>
               {
                 selectedFilm && selectedFilm.people.map((e) => (
 
                   <section className="perso-age" key={e.id}>
-                    <li>
+                    <li data-testid="element-details">
                       {`Personagem: ${e.name}`}
                     </li>
-                    <li>
+                    <li data-testid="element-details">
                       {`Idade: ${e.age}`}
                     </li>
                   </section>
@@ -43,7 +43,7 @@ function Details() {
               }
               {
               selectedFilm && selectedFilm.locations.map((local) => (
-                <p className="location" key={local.id}>
+                <p data-testid="element-details" className="location" key={local.id}>
                   {`Local: ${local.name}`}
                 </p>
               ))
