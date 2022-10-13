@@ -2,7 +2,10 @@ import React, { useContext, useEffect, useState } from 'react';
 import Context from '../context/Context';
 import Details from './Details';
 import '../styles/CardFilm.css';
-import { getAllFilms } from '../service/getAPI';
+import {
+  getAllFilms, getAllPeoples, getAllLocations, getCompletedMovies,
+} from '../service/getAPI';
+import { saveLocalStorage } from '../helpers/localStorage';
 
 function Films() {
   const {
@@ -12,10 +15,21 @@ function Films() {
 
   const [filterByName, setFilterByName] = useState('');
 
+  const getCompletedFilms = async () => {
+    const completedMovies = await getCompletedMovies();
+    saveLocalStorage('filmesCompletos', completedMovies);
+    setAllFilms(completedMovies ?? completedMovies);
+    setfilterFilms(completedMovies ?? completedMovies);
+  };
+
   const getAll = async () => {
-    const result = await getAllFilms();
-    setAllFilms(result);
-    setfilterFilms(result);
+    const resultFilms = await getAllFilms();
+    const resultPeoples = await getAllPeoples();
+    const resultLocations = await getAllLocations();
+    saveLocalStorage('filmes', resultFilms ?? resultFilms);
+    saveLocalStorage('pessoas', resultPeoples ?? resultPeoples);
+    saveLocalStorage('locais', resultLocations ?? resultLocations);
+    getCompletedFilms();
   };
 
   const setFilm = (film) => {
@@ -39,7 +53,7 @@ function Films() {
         ? <Details /> : false}
       <section className="section-card">
         <input
-          placeholder="Pesquise pelo seus filmes favoritos"
+          placeholder="Pesquise pelos seus filmes, pesonagens ou locais favoritos!"
           className="search"
           data-testid="input-search"
           type="text"
@@ -58,9 +72,6 @@ function Films() {
                 <p>
                   {`Diretor: ${e.director} `}
                 </p>
-                {/* <p>
-                  {`Produtor: ${e.producer}`}
-                </p> */}
                 <p>
                   {`Tempo: ${e.running_time}min`}
                 </p>
