@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import Modal from 'react-modal';
 import Context from '../context/Context';
-import { getPeople } from '../service/getAPI';
 import '../styles/Details.css';
 
 Modal.setAppElement('#root');
@@ -10,39 +9,6 @@ function Details() {
   const {
     modalIsOpen, setModalIsOpen, selectedFilm,
   } = useContext(Context);
-
-  const [allPeople, setAllPeople] = useState([]);
-  // const [allLocations, setAllLocations] = useState([]);
-
-  useEffect(() => {
-    const getAllPeople = async () => {
-      const arrayPeople = selectedFilm.people.map(async (pessoa) => {
-        if (pessoa !== 'https://ghibliapi.herokuapp.com/people/') {
-          const result = await getPeople(pessoa);
-          return result;
-        }
-        return arrayPeople;
-      });
-      const resolvePeople = await Promise.all(arrayPeople);
-      setAllPeople(resolvePeople);
-    };
-    getAllPeople();
-  }, []);
-
-  // useEffect(() => {
-  //   const getAllLocations = async () => {
-  //     const arrayLocations = selectedFilm.locations.map(async (local) => {
-  //       if (local !== 'https://ghibliapi.herokuapp.com/locations/') {
-  //         const result = await getLocations(local);
-  //         console.log(result);
-  //         return result;
-  //       }
-  //     });
-  //     // const resolveLocation = await Promise.all(arrayLocations);
-  //     setAllLocations(arrayLocations);
-  //   };
-  //   getAllLocations();
-  // }, []);
 
   const closeModal = () => {
     setModalIsOpen(false);
@@ -63,9 +29,9 @@ function Details() {
               <h1>{selectedFilm.title}</h1>
               <p className="description">{selectedFilm.description}</p>
               {
-                allPeople && allPeople.map((e) => (
+                selectedFilm && selectedFilm.people.map((e) => (
 
-                  <section className="perso-age" key={e.name}>
+                  <section className="perso-age" key={e.id}>
                     <p className="propriedade">
                       {`Personagem: ${e.name}`}
                     </p>
@@ -75,13 +41,13 @@ function Details() {
                   </section>
                 ))
               }
-              {/* {
-              allLocations && allLocations.map((local) => (
-                <p key={local}>
-                  {`nome: ${local.name}`}
+              {
+              selectedFilm && selectedFilm.locations.map((local) => (
+                <p key={local.id}>
+                  {`Local: ${local.name}`}
                 </p>
               ))
-              } */}
+              }
             </section>
           )
           : false}
