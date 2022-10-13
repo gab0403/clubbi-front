@@ -53,7 +53,7 @@ function Films() {
         ? <Details /> : false}
       <section className="section-card">
         <input
-          placeholder="Pesquise pelos seus filmes, pesonagens ou locais favoritos!"
+          placeholder="Pesquise pelos seus filmes favoritos!"
           className="search"
           data-testid="input-search"
           type="text"

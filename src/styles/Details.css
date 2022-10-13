@@ -1,6 +1,6 @@
 @media (max-width: 599px ) {
   .modal {
-    width: 400px;
+    width: 300px;
     position: relative;
     margin: 10% auto;
     padding: 15px 20px;
@@ -31,7 +31,7 @@
   }
 
   .img-banner {
-    max-width: 360px;
+    max-width: 250px;
   }
 
   .description {
@@ -40,13 +40,15 @@
   }
 
   .perso-age {
-    display: flex;
-    justify-content: space-evenly;
     text-align: justify;
-  } 
+    margin: 15px;
+    list-style-type: none;
+  }
 
-  .propriedade {
+  .location {
     text-align: justify;
+    margin-left: 15px;
+    font-size: 16px;
   }
 }
 
@@ -92,13 +94,15 @@
   }
 
   .perso-age {
-    display: flex;
-    justify-content: space-evenly;
     text-align: justify;
-  } 
+    margin: 15px;
+    list-style-type: none;
+  }
 
-  .propriedade {
+  .location {
     text-align: justify;
+    margin-left: 15px;
+    font-size: 16px;
   }
 }
 
@@ -145,13 +149,15 @@
   }
 
   .perso-age {
-    display: flex;
-    justify-content: space-evenly;
     text-align: justify;
-  } 
+    margin: 15px;
+    list-style-type: none;
+  }
 
-  .propriedade {
+  .location {
     text-align: justify;
+    margin-left: 15px;
+    font-size: 16px;
   }
 }
 
@@ -197,13 +203,16 @@
   }
 
   .perso-age {
-    display: flex;
-    justify-content: space-evenly;
     text-align: justify;
-  } 
+    margin: 15px;
+    list-style-type: none;
+    font-size: 16px;
+  }
 
-  .propriedade {
+  .location {
     text-align: justify;
+    margin-left: 15px;
+    font-size: 16px;
   }
 }
 
@@ -250,12 +259,14 @@
   }
 
   .perso-age {
-    display: flex;
-    justify-content: space-evenly;
     text-align: justify;
-  } 
+    margin: 15px;
+    list-style-type: none;
+  }
 
-  .propriedade {
+  .location {
     text-align: justify;
+    margin-left: 15px;
+    font-size: 16px;
   }
 }
