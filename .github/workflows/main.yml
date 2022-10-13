@@ -31,10 +31,23 @@ jobs:
     runs-on: ubuntu-latest
     needs: [eslint, cypress-run]
     steps:
-        - name: build do projeto
-          run: npm run build
-        - name: deploy netlify
-          uses: jsmrcaga/action-netlify-deploy@v1.1.0
-          with:
-            NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+         steps:
+      - name: checkout do projeto/codigo
+        uses: actions/checkout@v3
+      
+      - name: instalacao node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+    
+      - name: instalando libs
+        run: npm install
+    
+      - name: build do projeto
+        run: npm run build
+
+      - name: deploy netlify
+        uses: jsmrcaga/action-netlify-deploy@v1.1.0
+        with:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
             NETLIFY_SITE_ID: fffd36d8-978a-4d3d-81ec-a4e850e714d1
