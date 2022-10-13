@@ -20,15 +20,16 @@ function Details() {
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
     >
-      <section>
+      <section className="section-proprie">
         <button type="button" onClick={closeModal} className="button-close">X</button>
         {selectedFilm
           ? (
             <section>
-              <img src={selectedFilm.movie_banner} alt="Banner do filme." className="img-banner" />
-              <h1>{selectedFilm.title}</h1>
-              <p className="description">{selectedFilm.description}</p>
-              {
+              <div className="section-proprie">
+                <img src={selectedFilm.movie_banner} alt="Banner do filme." className="img-banner" />
+                <h1>{selectedFilm.title}</h1>
+                <p className="description">{selectedFilm.description}</p>
+                {
                 selectedFilm && selectedFilm.people.map((e) => (
 
                   <section className="perso-age" key={e.id}>
@@ -41,13 +42,14 @@ function Details() {
                   </section>
                 ))
               }
-              {
+                {
               selectedFilm && selectedFilm.locations.map((local) => (
                 <p key={local.id}>
                   {`Local: ${local.name}`}
                 </p>
               ))
               }
+              </div>
             </section>
           )
           : false}

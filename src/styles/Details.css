@@ -7,6 +7,15 @@
     background: #fff;
  }
 
+  .section-proprie {
+    overflow: auto;
+    height: 500px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0;
+  }
+
   .button-close {
     position: absolute;
     width: 30px;
@@ -49,6 +58,15 @@
     padding: 15px 20px;
     background: #fff;
  }
+
+ .section-proprie {
+    overflow: auto;
+    height: 500px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0;
+  }
 
   .button-close {
     position: absolute;
@@ -93,6 +111,15 @@
     background: #fff;
  }
 
+ .section-proprie {
+    overflow: auto;
+    height: 500px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0;
+  }
+
   .button-close:hover {
     position: absolute;
     width: 30px;
@@ -132,10 +159,19 @@
   .modal {
     width: 400px;
     position: relative;
-    margin: 10% auto;
+    margin: 5% auto;
     padding: 15px 20px;
     background: #fff;
  }
+
+  .section-proprie {
+    overflow: auto;
+    height: 500px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0;
+  }
 
   .button-close {
     position: absolute;
@@ -175,10 +211,19 @@
   .modal {
     width: 400px;
     position: relative;
-    margin: 10% auto;
+    margin: 5% auto;
     padding: 15px 20px;
     background: #fff;
  }
+
+  .section-proprie {
+    overflow: auto;
+    height: 500px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0;
+  }
 
   .button-close:hover {
     position: absolute;
