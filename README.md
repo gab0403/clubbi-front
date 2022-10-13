@@ -39,3 +39,48 @@ Caso não saiba fazer testes não se preocupe.
 
 ---
 > Bom desenvolvimento!
+
+---
+# Sobre o desenvolvimento 
+
+### Tecnologias utilizadas
+
+* React com ContextApi;
+* CSS3;
+* Axios;
+* Cypress;
+* Docker;
+* CI/CD;
+
+---
+
+### Após realizar o clone utilize:
+
+```sh
+    npm install
+```
+---
+
+### Para executar os testes:
+
+```sh
+    npm run cy:open
+```
+ou
+
+```sh
+    npm run cy
+```
+---
+
+### Para rodar o Docker:
+
+```sh
+    docker-compose up -d
+```
+
+---
+
+### Deploy:
+
+https://frolicking-gingersnap-ed9543.netlify.app/
