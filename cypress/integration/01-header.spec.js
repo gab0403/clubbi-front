@@ -4,7 +4,7 @@ describe('01- Header', () => {
   };
 
   it('Verifica se há o elementos img.', () => {
-    cy.visit('http://localhost:3000');
+    cy.visit('https://frolicking-gingersnap-ed9543.netlify.app/');
 
     hasHeader();
   });

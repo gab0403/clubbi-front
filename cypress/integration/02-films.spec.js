@@ -1,6 +1,6 @@
 describe('02- Films', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000');
+    cy.visit('https://frolicking-gingersnap-ed9543.netlify.app/');
   });
 
   it('Verifica se o input de pesquisa tem o comportamento padrão', () => {

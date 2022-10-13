@@ -1,6 +1,6 @@
 describe('03- Details', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000');
+    cy.visit('https://frolicking-gingersnap-ed9543.netlify.app/');
     cy.get('[data-testid="button-details"]', { timeout: 10000 }).eq(1).click({ multiple: true });
   });
 
