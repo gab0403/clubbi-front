@@ -21,7 +21,7 @@ function Details() {
       onRequestClose={closeModal}
     >
       <section className="section-proprie">
-        <button type="button" onClick={closeModal} className="button-close">X</button>
+        <button data-testid="button-close" type="button" onClick={closeModal} className="button-close">X</button>
         {selectedFilm
           ? (
             <section>

@@ -12,7 +12,6 @@ function App() {
       <Films />
       <Footer />
     </Provider>
-
   );
 }
 

@@ -60,27 +60,27 @@ function Films() {
           value={filterByName}
           onChange={(e) => setFilterByName(e.target.value)}
         />
-        <section data-testid="result-table" className="card">
+        <section data-testid="result-card" className="card">
           {filterFilms.map((e) => (
             <section key={e.title} className="card-id">
-              <img className="img-card" src={e.image} alt="" />
+              <img data-testid="img-card" className="img-card" src={e.image} alt="" />
               <div className="div-texts">
-                <h1>{e.title}</h1>
-                <p>
+                <h1 data-testid="title-card">{e.title}</h1>
+                <p data-testid="element-card">
                   {`${e.release_date} `}
                 </p>
-                <p>
+                <p data-testid="element-card">
                   {`Diretor: ${e.director} `}
                 </p>
-                <p>
+                <p data-testid="element-card">
                   {`Tempo: ${e.running_time}min`}
                 </p>
-                <p>
+                <p data-testid="element-card">
                   {`Score:  ${e.rt_score}%`}
                 </p>
-                <section className="section-button-details">
-                  <button className="button-details" type="button" onClick={() => setFilm(e)}>Detalhes</button>
-                </section>
+                <div className="section-button-details">
+                  <button data-testid="button-details" className="button-details" type="button" onClick={() => setFilm(e)}>Detalhes</button>
+                </div>
               </div>
             </section>
           ))}
