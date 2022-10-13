@@ -17,8 +17,7 @@ jobs:
 
         - name: executando o lint para verificar se a erros
           run: npx eslint .
-  evaluator:
-    cypress-run:
+  cypress-run:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout

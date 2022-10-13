@@ -8,11 +8,11 @@ function Footer() {
     <footer className="footer">
       <p className="copy"> Gabriela Rodrigues © 2022</p>
       <section className="section-footer">
-        <a className="link" target="_blank" href="https://github.com/gab0403" rel="noreferrer">
+        <a className="link" target="_blank" href="https://www.linkedin.com/in/gabrielarodrigues-dev/" rel="noreferrer">
           <img className="logo" src={logoIn} alt="Logo Linkedin" />
 
         </a>
-        <a className="link" target="_blank" href="https://www.linkedin.com/in/gabrielarodrigues-dev/" rel="noreferrer">
+        <a className="link" target="_blank" href="https://github.com/gab0403" rel="noreferrer">
           <img className="logo" src={logoGH} alt="Logo Linkedin" />
         </a>
       </section>
