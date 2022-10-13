@@ -15,7 +15,7 @@ jobs:
         - name: instalando as dependências
           run: npm install
 
-        - name: executando o lint para verificar se a erros
+        - name: executando o lint para verificar se há erros
           run: npx eslint .
   cypress-run:
     runs-on: ubuntu-20.04
